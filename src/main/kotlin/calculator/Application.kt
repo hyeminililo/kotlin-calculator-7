@@ -1,17 +1,17 @@
 package calculator
-
+import camp.nextstep.edu.missionutils.Console
 const val ZERO: Int = 0
 
 fun main() {
     print("덧셈할 문자열을 입력해 주세요.")
-    var inputNumber = readLine()!!
+    val inputNumber = Console.readLine()
 
     if (inputNumber.isBlank()) {
         getResult(ZERO)
         return
     }
 
-    var numberList = mutableListOf<Int>()
+    val numberList = mutableListOf<Int>()
     val customSignResult =
         if (inputNumber.startsWith("//")) {
             getCustomSign(inputNumber)
@@ -43,8 +43,8 @@ fun customSplit(input: String, sign: String): List<String> {
     if (!input.contains(sign)) {
         incorrectSign()
     }
-    val b = input.substringAfter("\\n")
-    return b.split(sign)
+    val spliter = input.substringAfter("\\n")
+    return spliter.split(sign)
 }
 
 fun stringToInt(input: List<String>): List<Int> {
